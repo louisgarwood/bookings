@@ -1,0 +1,11 @@
+.my-footer {
+    height: 5em;
+    color: white;
+    background-color: #3e3e3e;
+    margin-top: 1.5em;
+    padding: 1em;
+  }
+
+  .swal2-actions {
+    z-index: 0!important;
+  }
