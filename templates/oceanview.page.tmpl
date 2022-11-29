@@ -1,0 +1,28 @@
+{{template "base" .}}
+
+{{define "content"}}
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <img src="/static/images/oceanview-room.jpeg" class="img-fluid img-thumbnail mx-auto d-block room-img"/>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <h1 class="text-center mt-4">Ocean View</h1>
+                <p> Dream of distant shores as you stare longingly over the sea...</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col text-center">
+                <button class="btn btn-outline-secondary" id="check-availability-button">Check Availability</button>
+            </div>
+        </div>
+    </div>
+{{end}}
+
+{{define "js"}}
+    <script src="/static/js/search-availability-modal.js"></script>
+{{end}}

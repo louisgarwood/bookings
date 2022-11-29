@@ -1,11 +1,52 @@
 {{template "base" .}}
 
 {{define "content"}}
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <h1>This is the Home Page</h1>
+
+    <div id="main-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+
+        <div class="carousel-indicators">
+        <button type="button" data-bs-target="#main-carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#main-carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#main-carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+    
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+            <img src="/static/images/house1.jpg" class="d-block w-100" alt="House Outside">
+            <div class="carousel-caption d-none d-md-block">
+                <h5>Lou's Tiny Wonder Town</h5>
+                <p>Welcome to Lou's Tiny Wonder Town, where you can stay in a tiny home on a tiny property for tiny prices!</p>
+            </div>
+            </div>
+            <div class="carousel-item">
+            <img src="/static/images/cozy.jpeg" class="d-block w-100" alt="Cozy">
+            <div class="carousel-caption d-none d-md-block">
+                <h5>Cozy Rooms</h5>
+                <p>Get warm and have fun!</p>
+            </div>
+            </div>
+            <div class="carousel-item">
+            <img src="/static/images/coffee.jpeg" class="d-block w-100" alt="Coffee">
+            <div class="carousel-caption d-none d-md-block">
+                <h5>Coffee Dudes!</h5>
+                <p>yeah,  we got coffee too!</p>
+            </div>
             </div>
         </div>
     </div>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h1 class="text-center mt-4">Lou's Tiny Wonder Town</h1>
+                <p> Welcome to Lou's Tiny Wonder Town, where you can stay in a tiny home on a tiny property for tiny prices!</p>
+            </div>
+        </div>
+
+        <div class="row">
+        <div class="col text-center">
+            <a class="btn btn-success"  href="/search-availability">Make Reservation Now</a>
+        </div>
+        </div>
+    </div>
+
 {{end}}

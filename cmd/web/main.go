@@ -3,11 +3,12 @@ package main
 import (
 	"fmt"
 	"log"
-	"github.com/louisgarwood/bookings/pkg/config"
-	"github.com/louisgarwood/bookings/pkg/handlers"
-	"github.com/louisgarwood/bookings/pkg/render"
 	"net/http"
 	"time"
+
+	"github.com/louisgarwood/bookings/internal/config"
+	"github.com/louisgarwood/bookings/internal/handlers"
+	"github.com/louisgarwood/bookings/internal/render"
 
 	"github.com/alexedwards/scs/v2"
 )

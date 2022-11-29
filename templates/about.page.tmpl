@@ -4,15 +4,8 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                <h1>This is the About Page</h1>
-                <p>{{index .StringMap "message"}}</p>
-                <p>
-                    {{if ne (index .StringMap "remote_ip") ""}}
-                        Your remote IP address is {{index .StringMap "remote_ip"}}
-                    {{else}}
-                        I don't know your IP address, start a session at <a href="/">Home Page</a>
-                    {{end}}
-                </p>
+                <h1 class="text-center mt-4">About</h1>
+                <p> So many facts!</p>
             </div>
         </div>
     </div>

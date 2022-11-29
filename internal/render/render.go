@@ -4,10 +4,12 @@ import (
 	"bytes"
 	"html/template"
 	"log"
-	"github.com/louisgarwood/bookings/pkg/config"
-	"github.com/louisgarwood/bookings/pkg/models"
 	"net/http"
 	"path/filepath"
+
+	"github.com/justinas/nosurf"
+	"github.com/louisgarwood/bookings/internal/config"
+	"github.com/louisgarwood/bookings/internal/models"
 )
 
 var app *config.AppConfig
@@ -16,11 +18,12 @@ func NewTemplates(a *config.AppConfig) {
 	app = a
 }
 
-func AddDefaultData(templateData *models.TemplateData) *models.TemplateData {
+func AddDefaultData(templateData *models.TemplateData, request *http.Request) *models.TemplateData {
+	templateData.CSRFToken = nosurf.Token(request)
 	return templateData
 }
 
-func RenderTemplate(writer http.ResponseWriter, tmpl string, templateData *models.TemplateData) {
+func RenderTemplate(writer http.ResponseWriter, tmpl string, templateData *models.TemplateData, request *http.Request) {
 
 	var templateCache map[string]*template.Template
 	var err error
@@ -42,7 +45,7 @@ func RenderTemplate(writer http.ResponseWriter, tmpl string, templateData *model
 
 	buf := new(bytes.Buffer)
 
-	templateData = AddDefaultData(templateData)
+	templateData = AddDefaultData(templateData, request)
 
 	err = template.Execute(buf, templateData)
 	if err != nil {
