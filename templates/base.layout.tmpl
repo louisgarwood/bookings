@@ -70,8 +70,23 @@
           <script src="https://unpkg.com/notie"></script>
           <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
           <script src="static/js/bookings.js"></script>
-          {{block "js" .}}
 
+          <script>
+          {{with .Error}}
+          alert("error", "{{.}}")
+          {{end}}
+
+          {{with .Flash}}
+          alert("success", "{{.}}")
+          {{end}}
+
+          {{with .Warning}}
+          alert("warning", "{{.}}")
+          {{end}}
+          </script>
+          
+
+          {{block "js" .}}
           {{end}}
     </body>
     </html>

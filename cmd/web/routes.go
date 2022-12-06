@@ -15,7 +15,6 @@ func DefineRoutes(app *config.AppConfig) http.Handler {
 	multiplexer := chi.NewRouter()
 
 	multiplexer.Use(middleware.Recoverer)
-	multiplexer.Use(WriteToConsole)
 	multiplexer.Use(NoSurf)
 	multiplexer.Use(SessionLoad)
 
@@ -28,6 +27,11 @@ func DefineRoutes(app *config.AppConfig) http.Handler {
 	multiplexer.Get("/search-availability", handlers.Repo.SearchAvailability)
 	multiplexer.Post("/search-availability", handlers.Repo.PostSearchAvailability)
 	multiplexer.Post("/search-availability-json", handlers.Repo.AvailabilityJSON)
+
+	multiplexer.Get("/make-reservation", handlers.Repo.Reservation)
+	multiplexer.Post("/make-reservation", handlers.Repo.PostReservation)
+
+	multiplexer.Get("/reservation-summary", handlers.Repo.ReservationSummary)
 
 	fileServer := http.FileServer(http.Dir("./static/"))
 	multiplexer.Handle("/static/*", http.StripPrefix("/static/", fileServer))
